@@ -1,4 +1,3 @@
-
 object MyModule {
   def abs(x: Int): Int = 
     if(x < 0) -x

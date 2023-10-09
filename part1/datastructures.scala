@@ -25,6 +25,21 @@ object List {
     if(as.isEmpty) Nil
     else Cons(as.head, apply(as.tail: _*))
 
+  def tail[A](l: List[A]): List[A] = l match {
+    case Nil => sys.error("empty list")
+    case Cons(_, t) => t
+  }
+
+  def drop[A](l: List[A], n: Int): List[A] = 
+    if(n <= 0) l else l match {
+      case Nil => Nil
+      case Cons(_, t) => drop(t, n - 1)
+    }
+
+  def dropWhile[A](l: List[A], f: A => Boolean): List[A] = l match {
+    case Cons(h, t) if f(h) => dropWhile(t, f)
+    case _ => l
+
   @main def main(args: Array[String]): Unit = {
     val l1: List[Int] = List(1,2,3,4)
     val l2: List[Int] = tail(l1)

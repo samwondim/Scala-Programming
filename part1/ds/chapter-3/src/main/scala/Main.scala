@@ -1,5 +1,4 @@
-@main def hello: Unit =
-  println("Hello world!")
-  println(msg)
+import List._
 
-def msg = "I was compiled by Scala 3. :)"
+@main def hello(): Unit =
+  val xs: List[Int] = List(1,2,3,4)
